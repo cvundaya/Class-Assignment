@@ -1,0 +1,18 @@
+[
+    { "title": "Task 1", "files": ["task1.html"] },
+    { "title": "Task 2", "files": ["task2.html"] },
+    { "title": "Task 3", "files": ["task3.html"] },
+    { "title": "Task 4", "files": ["task4.html"] },
+    { "title": "Task 5", "files": ["task5.html"] },
+    { "title": "Task 6", "files": ["task6.html"] },
+    { "title": "Task 7", "files": ["task7.html"] },
+    { "title": "Task 8", "files": ["task8.html"] },
+    { "title": "Task 9", "files": ["task9.html"] },
+    { "title": "Task 10", "files": ["task10.html"] },
+    { "title": "Task 11", "files": ["task11.html"] },
+    { "title": "Task 12", "files": ["task12.html"] },
+    { "title": "Task 13", "files": ["task13.html"] },
+    { "title": "Task 14", "files": ["task14.html"] },
+    { "title": "Task 15", "files": ["task15.html"] },
+    { "title": "Task 16", "files": ["task16.html"] }
+]
