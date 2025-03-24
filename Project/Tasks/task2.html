@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Page</title>
+    <style>
+        /* General styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container */
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* Header styling */
+        .header {
+            background-color: #d3d3d3;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        /* Content styling */
+        .content {
+            background-color: #d9f5ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 16px;
+            color: #000;
+        }
+
+        /* Button styling */
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            color: #000;
+            border: 2px solid #000;
+            border-radius: 5px;
+            font-size: 16px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.2s ease-in-out;
+        }
+
+        .btn:hover {
+            background-color: #f0f0f0;
+        }
+
+        /* Dashboard specific styles */
+        .dashboard {
+            background-color: #000;
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .dashboard .header {
+            background-color: #222;
+            color: #fff;
+        }
+
+        .dashboard .gray-box {
+            width: 100%;
+            height: 200px;
+            background-color: #555;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Hide pages */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- INDEX PAGE -->
+    <div id="indexPage" class="container">
+        <div class="header">
+            <h1>Welcome to My Custom Designed Page!</h1>
+        </div>
+        <div class="content">
+            <p>
+                This is some random text! Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Fugiat mollitia enim sunt sapiente nemo assumenda
+                eius tenetur architecto repellat, minus aut! Unde, ut hic. Pariatur
+                repellat fugit esse explicabo officia! Lorem ipsum dolor sit amet
+                consectetur adipisicing elit. Necessitatibus ipsum quibusdam veritatis
+                consequatur perspiciatis delectus unde vitae, earum suscipit nisi ad
+                veniam amet ipsam! Blanditiis culpa delectus ad cumque iste. Lorem
+                ipsum dolor sit amet consectetur adipisicing elit.
+            </p>
+        </div>
+        <a onclick="showDashboard()" class="btn">Click here to see the Dashboard</a>
+    </div>
+
+    <!-- DASHBOARD PAGE -->
+    <div id="dashboardPage" class="dashboard hidden">
+        <div class="container">
+            <div class="header">
+                <h1>Welcome to the Custom Dashboard</h1>
+                <p>It doesn't have any functionalities yet!</p>
+            </div>
+            <div class="gray-box"></div>
+            <a onclick="showIndex()" class="btn">Click here to return to Home</a>
+        </div>
+    </div>
+
+    <script>
+        // Function to show the dashboard page and hide the index page
+        function showDashboard() {
+            document.getElementById('indexPage').classList.add('hidden');
+            document.getElementById('dashboardPage').classList.remove('hidden');
+        }
+
+        // Function to show the index page and hide the dashboard page
+        function showIndex() {
+            document.getElementById('dashboardPage').classList.add('hidden');
+            document.getElementById('indexPage').classList.remove('hidden');
+        }
+    </script>
+
+</body>
+</html>

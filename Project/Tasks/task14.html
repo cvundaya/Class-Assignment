@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <input placeholder="Enter A" id="input_a"/>
+        <input placeholder="Enter B" id="input_b"/>
+        <button onclick="generate_random_value();"> Generate Random Value</button>
+        <div id="output_div"></div>
+        <script>
+            let colors = ["red", "green", "blue", "gray", "ocean_blue"];
+            function generate_random_value(){
+                let a = parseInt(document.getElementById("input_a").value);
+                let b = parseInt(document.getElementById("input_b").value);
+                let random_value = Math.floor((b - a) * Math.random() + a);
+                document.getElementById("output_div").innerHTML = random_value;
+                let size = colors.length;
+                let idx = Math.floor(Math.random() * size);
+                document.getElementById("output_div").style = "color:" + colors[idx];
+            }
+
+            function hide_content(){
+                document.body.innerHTML = "<h1><b>Vanished!</b></h1>";
+            }
+
+            setTimeout(hide_content, 5000);
+        </script>
+    </body>
+</html>

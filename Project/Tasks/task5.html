@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            input{
+                width: 300px;
+                font-size: 20px;
+            }
+            button{
+                width: 230px;
+                font-size: 20px;
+            }
+            .button_div{
+                margin-top: 10px;
+            }
+            #container{
+                padding: 10px;
+                margin: 10px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div id="container">
+            <div class="input_div">
+                <input placeholder="Enter the value of X" id="num1"/>
+                <input placeholder="Enter the value of Y" id="num2"/>
+                <input placeholder="Result will appear here" id="res" disabled/>
+            </div>
+
+            <div class="button_div">
+                <button onclick="calculate('add')">Addition (X + Y)</button>
+                <button onclick="calculate('subtract')">Subtraction (X - Y)</button>
+                <button onclick="calculate('multiply')">Multiplication (X * Y)</button>
+                <button onclick="calculate('divide')">Division (X / Y)</button>
+            </div>            
+        </div>
+
+        <script>
+            function calculate(operation) {
+                const x = parseFloat(document.getElementById('num1').value);
+                const y = parseFloat(document.getElementById('num2').value);
+                let result;
+
+                if (isNaN(x) || isNaN(y)) {
+                    alert("Please enter valid numbers!");
+                    return;
+                }
+
+                switch(operation) {
+                    case 'add':
+                        result = x + y;
+                        break;
+                    case 'subtract':
+                        result = x - y;
+                        break;
+                    case 'multiply':
+                        result = x * y;
+                        break;
+                    case 'divide':
+                        if (y === 0) {
+                            alert("Cannot divide by zero!");
+                            return;
+                        }
+                        result = x / y;
+                        break;
+                    default:
+                        alert("Invalid operation");
+                        return;
+                }
+
+                document.getElementById('res').value = result;
+            }
+        </script>
+    </body>
+</html>

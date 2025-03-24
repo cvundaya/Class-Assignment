@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Works</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Times New Roman", serif;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+
+        /* Header section */
+        .header {
+            width: 100%;
+            padding: 40px 10px 20px 10px; /* Increased top padding to position Class Works correctly */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            font-weight: bold;
+            background-color: #e4f7ff; /* Light Blue Extended */
+            color: black;
+            position: relative;
+            border-bottom: 2px solid #d4faff; /* Creates separation */
+        }
+
+        /* Separation Line */
+        .separator {
+            width: 100%;
+            height: 2px;
+            background-color: #ccc; /* Light gray line */
+            margin-top: 0; /* Kept right below header */
+        }
+
+        /* Navigation buttons */
+        .nav-buttons {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-top: 10px; /* Adjusted for better spacing */
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .nav-buttons button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 14px;
+            color: black;
+            font-weight: normal;
+            padding: 5px 10px;
+            border-radius: 10px; /* Rounded corners */
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .nav-buttons button:hover {
+            background-color: rgba(0, 0, 0, 0.1); /* Light gray box on hover */
+            padding: 5px 10px;
+        }
+
+        /* Positioning for Project buttons */
+        .project-left {
+            position: absolute;
+            left: 20px;
+            top: 0;
+        }
+
+        .project-center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+        }
+
+        .project-right {
+            position: absolute;
+            right: 20px;
+            top: 0;
+        }
+
+        /* Main Content */
+        .container {
+            display: flex;
+            justify-content: flex-start;
+            padding-left: 10%;
+            margin-top: 20px;
+        }
+
+        /* Position "Select a link to display here." */
+        .content-box {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: left;
+            position: absolute;
+            top: 160px; /* Ensures it's just below the header */
+            left: 10px; /* Leftmost start of body */
+        }
+
+        /* Fullscreen project pages */
+        .project-page {
+            display: none;
+            height: 100vh;
+            width: 100vw;
+            position: fixed;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+        }
+
+        #project1 { background-color: red; }
+        #project2 { background-color: green; }
+        #project3 { background-color: blue; }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <div class="header">
+        Class Works
+        <div class="nav-buttons">
+            <button class="project-left" onclick="showProject('project1')">Project 1</button>
+            <button class="project-center" onclick="showProject('project2')">Project 2</button>
+            <button class="project-right" onclick="showProject('project3')">Project 3</button>
+        </div>
+    </div>
+
+    <!-- Separation Line -->
+    <div class="separator"></div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div id="content" class="content-box">Select a link to display here.</div>
+    </div>
+
+    <!-- Fullscreen Project Pages -->
+    <div id="project1" class="project-page" onclick="goBack()"></div>
+    <div id="project2" class="project-page" onclick="goBack()"></div>
+    <div id="project3" class="project-page" onclick="goBack()"></div>
+
+    <script>
+        function showProject(projectId) {
+            document.querySelectorAll('.project-page').forEach(page => {
+                page.style.display = "none";
+            });
+
+            document.getElementById(projectId).style.display = "block";
+            history.pushState({ page: projectId }, "", "#" + projectId);
+        }
+
+        function goBack() {
+            document.querySelectorAll('.project-page').forEach(page => {
+                page.style.display = "none";
+            });
+
+            history.pushState({ page: "main" }, "", "#");
+        }
+
+        window.onpopstate = function(event) {
+            if (!event.state || event.state.page === "main") {
+                goBack();
+            }
+        };
+    </script>
+
+</body>
+</html>

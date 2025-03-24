@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Pattern Generator</title>
+</head>
+<body>
+    <input type="number" id="numberInput" placeholder="Enter a number" min="1">
+    <button onclick="generatePattern()">Generate Pattern</button>
+    <pre id="patternOutput"></pre>
+    <script>
+        function generatePattern() {
+    const number = document.getElementById('numberInput').value;
+    let pattern = '';
+    for (let i = 1; i <= number; i++) {
+        for (let j = 0; j < i; j++) {
+            pattern += "* ";
+        }
+        pattern += "<br>";
+    }
+    document.getElementById('patternOutput').innerHTML = pattern;
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uppercase Converter</title>
+</head>
+<body>
+    <label for="inputText">Input:</label>
+    <input type="text" id="inputText" oninput="convertToUpper()">
+    
+    <label for="outputText">Output:</label>
+    <input type="text" id="outputText" readonly>
+
+    <script>
+        function convertToUpper() {
+            var input = document.getElementById("inputText").value;
+            document.getElementById("outputText").value = input.toUpperCase();
+        }
+    </script>
+</body>
+</html>
+

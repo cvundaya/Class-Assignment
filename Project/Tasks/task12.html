@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Information</title>
+</head>
+<body>
+
+<form id="person_form">
+    <div style="display: flex; gap: 10px;">
+        <input type="text" id="name" name="name" placeholder="Enter full name">
+        <input type="text" id="dob" name="dob" placeholder="Enter date of birth">
+        <input type="text" id="gender" name="gender" placeholder="Enter gender">
+        <input type="text" id="qualification" name="qualification" placeholder="Enter highest qualification">
+        <input type="text" id="institution" name="institution" placeholder="Enter university name">
+    </div>
+    <br>
+    <button type="button" onclick="insert()">Insert</button>
+    <button type="button" onclick="show_person_info()">Show Info</button>
+</form>
+
+<div id="demo_div" style="margin-top: 20px;">
+    <!-- Personal information will be displayed here -->
+</div>
+
+<script>
+    let person = {};
+function show_person_info() {
+document.getElementById("demo_div").innerHTML = `
+<p>Full Name: ${person.name}</p>
+<p>Date of Birth: ${person.dob}</p>
+<p>Gender: ${person.gender}</p>
+<p>Highest Qualification: ${person.qualification}</p>
+<p>University Name: ${person.institution}</p>
+`;
+}
+function insert() {
+person.name = document.getElementById("name").value;
+person.dob = document.getElementById("dob").value;
+person.gender = document.getElementById("gender").value;
+person.qualification = document.getElementById("qualification").value;
+person.institution = document.getElementById("institution").value;
+}
+
+</script>
+
+</body>
+</html>

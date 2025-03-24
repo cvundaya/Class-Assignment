@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Call Stack</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        input, button {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .tasks-list {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+
+        p {
+            font-size: 1em;
+            margin-top: 15px;
+        }
+
+        .undo-btn {
+            background-color: #e0a800;
+        }
+
+        .undo-btn:hover {
+            background-color: #d37e00;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Task Call Stack</h1>
+        <input type="text" id="taskInput" placeholder="Enter task name">
+        <button onclick="addTask()">Add Task</button>
+        <button class="undo-btn" onclick="undoTask()">Undo Task</button>
+        
+        <div class="tasks-list">
+            <h3>Current Task Pipeline:</h3>
+            <p id="taskPipeline">No tasks yet.</p>
+        </div>
+    </div>
+
+    <script>
+        // Initialize an empty stack (array)
+        let taskStack = [];
+
+        // Function to add a task to the stack
+        function addTask() {
+            const taskName = document.getElementById('taskInput').value.trim();
+
+            // If the task name is not empty
+            if (taskName !== "") {
+                taskStack.push(taskName);
+                document.getElementById('taskInput').value = ""; // Clear the input field
+                updatePipeline();
+            } else {
+                alert("Please enter a task name!");
+            }
+        }
+
+        // Function to undo the last task
+        function undoTask() {
+            if (taskStack.length > 0) {
+                taskStack.pop();
+                updatePipeline();
+            } else {
+                alert("No tasks to undo!");
+            }
+        }
+
+        // Function to update the task pipeline display
+        function updatePipeline() {
+            const taskPipeline = document.getElementById('taskPipeline');
+            if (taskStack.length === 0) {
+                taskPipeline.innerText = "No tasks yet.";
+            } else {
+                taskPipeline.innerText = taskStack.join(" -> ");
+            }
+        }
+    </script>
+</body>
+</html>
