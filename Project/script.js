@@ -1,5 +1,5 @@
 // Set base path to reflect GitHub Pages URL structure
-const basePath = '/Class-Assignments/Project/';
+const basePath = '/Class-Assignment/Project/';
 
 // Fetch the data.json file from the correct location
 fetch(`${basePath}data.json`)
