@@ -1,5 +1,5 @@
-// Set base path to reflect GitHub Pages URL structure
-const basePath = '/Class-Assignment/Project/';
+// Set base path to reflect the GitHub Pages URL structure
+const basePath = '/Class-Assignment/Project/'; // Update the basePath for your GitHub repository structure
 
 // Fetch the data.json file from the correct location
 fetch(`${basePath}data.json`)
@@ -11,15 +11,21 @@ fetch(`${basePath}data.json`)
     })
     .then(data => {
         const taskList = document.getElementById('task-list');
-        taskList.innerHTML = '';
+        taskList.innerHTML = ''; // Clear the task list before adding new content
 
         console.log('Data loaded:', data);
 
         data.forEach(task => {
             const thumbnail = document.createElement('div');
             thumbnail.classList.add('thumbnail');
+
+            // Add title to the thumbnail (without image)
             thumbnail.innerHTML = `<h3>${task.title}</h3>`;
+
+            // Add an event listener for task click
             thumbnail.addEventListener('click', () => loadTaskContent(task.title, task.files));
+
+            // Append the thumbnail to the task list
             taskList.appendChild(thumbnail);
         });
     })
